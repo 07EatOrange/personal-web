@@ -35,7 +35,7 @@ export default function SkillsSection() {
                       {skill.icon}
                     </div>
                     <div>
-                      <h3 className="font-semibold text-foreground text-sm">{skill.name}</h3>
+                      <h3 className="font-semibold text-foreground text-13px">{skill.name}</h3>
                       <p className="text-xs text-muted-foreground mt-1">{skill.description}</p>
                     </div>
                   </CardContent>
