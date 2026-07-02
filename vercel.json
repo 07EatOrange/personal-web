@@ -1,4 +1,6 @@
 {
+  "buildCommand": "npx vite build",
+  "outputDirectory": "dist/client",
   "rewrites": [
     { "source": "/((?!assets/|favicon\\.svg|avatar\\.jpg|.*\\.js|.*\\.css|.*\\.map|.*\\.png|.*\\.jpg|.*\\.svg|.*\\.ico|.*\\.woff2?).*)", "destination": "/index.html" }
   ],
