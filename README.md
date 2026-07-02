@@ -1,21 +1,21 @@
-# 🍊 吃个橘子吧 · 个人主页
+#  吃个橘子吧 · 个人主页
 
 基于 React + TypeScript + Tailwind CSS 的个人品牌展示网站，海蓝色二次元风格。
 
 ## 技术栈
 
-| 类别 | 技术 |
-|---|---|
-| 框架 | React 19 + TypeScript |
-| 构建 | Vite 8 |
-| 样式 | Tailwind CSS 4 + CSS 变量主题 |
-| 路由 | React Router 7 |
-| 动画 | framer-motion |
-| UI 组件 | Radix UI + 自定义组件库 |
-| 表单 | react-hook-form + zod |
+| 类别       | 技术                          |
+| -------- | --------------------------- |
+| 框架       | React 19 + TypeScript       |
+| 构建       | Vite 8                      |
+| 样式       | Tailwind CSS 4 + CSS 变量主题   |
+| 路由       | React Router 7              |
+| 动画       | framer-motion               |
+| UI 组件    | Radix UI + 自定义组件库           |
+| 表单       | react-hook-form + zod       |
 | Markdown | react-markdown + remark-gfm |
-| 持久化 | localStorage (scoped) |
-| 部署 | Vercel |
+| 持久化      | localStorage (scoped)       |
+| 部署       | Vercel                      |
 
 ## 项目结构
 
@@ -85,13 +85,13 @@ src/
 
 海蓝色主题（`src/tailwind-theme.css`）：
 
-| 角色 | 色值 | 用途 |
-|---|---|---|
-| primary | `hsl(210 72% 52%)` | 主按钮、CTA、品牌锚点 |
-| background | `hsl(210 40% 98%)` | 页面背景 |
-| card | `hsl(210 35% 95%)` | 卡片容器 |
-| foreground | `hsl(218 30% 20%)` | 标题/正文 |
-| accent | `hsl(200 50% 90%)` | hover/选中态 |
+| 角色         | 色值                 | 用途           |
+| ---------- | ------------------ | ------------ |
+| primary    | `hsl(210 72% 52%)` | 主按钮、CTA、品牌锚点 |
+| background | `hsl(210 40% 98%)` | 页面背景         |
+| card       | `hsl(210 35% 95%)` | 卡片容器         |
+| foreground | `hsl(218 30% 20%)` | 标题/正文        |
+| accent     | `hsl(200 50% 90%)` | hover/选中态    |
 
 ### 字体
 
@@ -132,6 +132,7 @@ npx vercel --prod
 
 ## 数据持久化
 
-| Key | 数据 | 说明 |
-|---|---|---|
+| Key                      | 数据           | 说明    |
+| ------------------------ | ------------ | ----- |
 | `__orange_blog_messages` | `IMessage[]` | 留言板数据 |
+

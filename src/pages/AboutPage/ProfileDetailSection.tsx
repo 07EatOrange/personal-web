@@ -59,8 +59,8 @@ export default function ProfileDetailSection() {
                         <item.icon className="size-4 text-primary" />
                       </div>
                       <div className="min-w-0">
-                        <p className="text-xs text-muted-foreground">{item.label}</p>
-                        <p className="text-sm font-medium text-foreground">{item.value}</p>
+                        <p className="text-sm text-muted-foreground">{item.label}</p>
+                        <p className="text-base font-medium text-foreground">{item.value}</p>
                       </div>
                     </motion.div>
                   ))}
