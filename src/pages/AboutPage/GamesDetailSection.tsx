@@ -5,10 +5,10 @@ import { Badge } from '@/components/ui/badge';
 import { Trophy, Star } from 'lucide-react';
 
 const gameDescriptions: Record<string, string> = {
-  '王者荣耀': '巅峰赛2300分，国服最强李信。对光信和暗信两种形态都有深刻理解，擅长对线压制和团战输出。',
-  '金铲铲': '千分王者段位，精通多种阵容搭配和运营策略，对版本强势阵容有独到理解。',
-  '饥荒': 'Steam平台生存游戏，享受在荒野中探索、建造和求生的乐趣。',
-  '他人世界末': 'Steam平台视觉小说，沉浸式剧情体验，感受文字与故事的力量。',
+  '王者荣耀': '巅峰赛2300分，国服最强李信。玩暗信的，打法激进不同寻常。',
+  '金铲铲': '千分王者段位，对莫名其妙的阵容有独到理解。',
+  '饥荒': 'Steam平台生存游戏，第一个玩的steam游戏。',
+  '他人世界末': 'Steam平台视觉小说，第一款付费gal。',
 };
 
 export default function GamesDetailSection() {
@@ -75,7 +75,7 @@ export default function GamesDetailSection() {
           >
             <Star className="size-4 text-primary fill-primary" />
             <span className="text-sm text-muted-foreground">
-              对计算机和AI有浓厚兴趣，正在不断学习和探索中~
+              享受人生吧！
             </span>
             <span className="text-lg">💎</span>
           </motion.div>

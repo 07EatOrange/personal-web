@@ -3,10 +3,14 @@ import { MOCK_PROFILE } from '@/data/profile';
 import { Card, CardContent } from '@/components/ui/card';
 
 const skillDetails: Record<string, string> = {
-  'AI视频': '接触并实践AI视频制作技术，探索AI在视频创作领域的应用，包括AI生成视频片段、视频风格迁移等前沿技术。',
-  'Live2D骨骼绑定': '掌握Live2D基础骨骼绑定技术，能够为角色模型添加骨骼结构，实现自然的身体运动效果。熟悉骨骼层级关系和参数调整。',
-  'Seethrough拆分': '熟练使用seethrough工具进行图层拆分，将角色立绘分解为可独立控制的身体部件，为Live2D动画制作提供素材基础。',
-  'AI生成图片': '利用AI绘图工具（Stable Diffusion、Midjourney等）生成二次元风格的角色立绘和素材图，配合Live2D制作流程使用。',
+  'AI视频生成': '做过AI视频比赛作品和三体AI短片。成品不理想，但摸清了AI视频的能力边界和制作流程。',
+  'AI出图': '一般用即梦，能完成基础的文生图和图生图操作。ComfyUI看情况学。',
+  'AI音乐': '用Suno生成过AI音乐，探索过不同风格和参数组合。',
+  'AI语音': '用过ElevenLabs等语音合成工具，了解基础的语音合成和克隆流程。',
+  'Live2D': '了解基础概念，会做最简单的面捕动画设置。暂不考虑深入。',
+  'Python': '14-15岁学过基础语法，写过小脚本。长期没用，需要重新捡起来。',
+  '视频剪辑': '水视频都水不明白目前。',
+  '自媒体运营': '抖音/B站/小红书三平台运营经验，三四年攒了800粉。',
 };
 
 export default function SkillsDetailSection() {

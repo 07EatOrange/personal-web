@@ -25,33 +25,34 @@ const timeline: TimelineItem[] = [
     tags: ['低谷', '转折'],
   },
   {
-    year: '2021',
+    year: '2021-至今',
     title: '15岁 · 开始做自媒体',
-    description: '断断续续发了三四年，抖音/B站/小红书三个平台攒了800粉。不多，但一直没停。',
+    description: '断断续续发游戏自媒体视频',
     icon: <Video className="size-4" />,
-    tags: ['自媒体', '抖音', 'B站', '小红书'],
+    tags: ['自媒体'],
   },
   {
-    year: '2023-2024',
-    title: '自学AI · 探索期',
-    description: '自学Stable Diffusion、AI视频生成、AI音乐（Suno）、AI语音（ElevenLabs）、Live2D图层拆分等技能。虽然都不精通，但建立起了对AI工具的全面认知。',
-    icon: <Sparkles className="size-4" />,
-    tags: ['SD', 'AI视频', 'Suno', 'ElevenLabs', 'Live2D'],
-  },
-  {
-    year: '2025',
+    year: '2025/10/10',
     title: '疯狂创作 · AI短片',
-    description: '花半个月做AI视频比赛作品——10个赞。又花一个月做三体AI短片，成品不理想。过程很痛苦，但真正摸清了AI视频的能力边界。',
+    description: '花一个月做AI视频比赛作品——10个赞。又花一二个月做三体AI短片，成品不理想。过程很痛苦，但稍微摸清了AI视频的能力边界。',
     icon: <Video className="size-4" />,
-    tags: ['AI视频', '三体', '比赛'],
+    tags: ['AI视频','比赛'],
+  },
+  {
+    year: '2025-至今',
+    title: '自学AI · 探索期',
+    description: '自学AI视频生成、AI音乐（Suno）、AI语音（ElevenLabs）、Live2D图层拆分等技能。虽然都不精通，但建立起了对AI工具的全面认知。',
+    icon: <Sparkles className="size-4" />,
+    tags: ['AI', 'Live2D'],
   },
   {
     year: '2026',
     title: '入学武职 · 新起点',
-    description: '即将入学武汉职业技术学院软件技术专业。装好了CUDA，搭了个人网站，准备系统学习编程。想出海赚外国人的钱，方向还在找，但没停下来。',
+    description: '即将入学武汉职业技术学院软件技术专业。装好了CUDA，搭了个人网站，准备系统学习编程,做出自己想要的东西。',
     icon: <GraduationCap className="size-4" />,
-    tags: ['武职', '软件技术', 'CUDA', 'Web开发'],
+    tags: ['武职', '软件技术', '开发'],
   },
+
 ];
 
 export default function TimelineSection() {

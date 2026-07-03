@@ -45,7 +45,7 @@ export const MOCK_PROFILE: IProfile = {
   birthDate: '2007-04-24',
   birthPlace: '福建莆田',
   currentCity: '武汉',
-  computerSkill: '会开机，Vibecoding菜鸟',
+  computerSkill: '会开机,Vibecoding菜鸟',
   interests: ['AI', 'Live2D', '游戏', '二次元', '国际政治', '自媒体'],
   skills: [
     { id: 's1', name: 'AI视频生成', description: 'AI视频做的一般般', icon: '🎬' },
