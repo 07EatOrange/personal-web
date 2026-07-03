@@ -39,11 +39,11 @@ export default function ProfileSection() {
                     className="flex items-start gap-3 p-3 rounded-xl bg-muted/50"
                   >
                     <div className="shrink-0 w-9 h-9 rounded-lg bg-primary/10 flex items-center justify-center">
-                      <item.icon className="size-4 text-primary" />
+                      <item.icon className="size-6 text-primary" />
                     </div>
                     <div className="min-w-0">
-                      <p className="text-xs text-muted-foreground">{item.label}</p>
-                      <p className="text-sm font-medium text-foreground truncate">{item.value}</p>
+                      <p className="text-sm text-muted-foreground">{item.label}</p>
+                      <p className="text-base font-medium text-foreground truncate">{item.value}</p>
                     </div>
                   </motion.div>
                 ))}

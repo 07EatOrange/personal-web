@@ -57,7 +57,7 @@ export default function HeroSection() {
               <span className="ml-2 inline-block animate-bounce">🌊</span>
             </h1>
             <p className="text-lg md:text-xl text-muted-foreground mb-6">
-              🎀 二次元 · AI · Live2D · 游戏 🎮
+               二次元 · AI · Live2D · 游戏 🎮
             </p>
             <p className="text-sm text-muted-foreground mb-8 max-w-md">
               {profile.age}岁 · {profile.gender} · 来自{profile.birthPlace} · 现居{profile.currentCity}
