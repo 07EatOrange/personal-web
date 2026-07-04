@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useAutoAnimate } from '@formkit/auto-animate/react';
-import { scopedStorage, logger } from '@lark-apaas/client-toolkit-lite';
+import { supabase, type Message } from '@/lib/supabase';
 import { toast } from 'sonner';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -13,15 +13,6 @@ import { Textarea } from '@/components/ui/textarea';
 import { Form, FormControl, FormField, FormItem, FormMessage } from '@/components/ui/form';
 import { MessageCircle, Send, User } from 'lucide-react';
 
-const STORAGE_KEY = '__orange_blog_messages';
-
-interface IMessage {
-  id: string;
-  nickname: string;
-  content: string;
-  createdAt: number;
-}
-
 const messageSchema = z.object({
   nickname: z.string().min(1, '请输入昵称').max(20, '昵称最多20个字'),
   content: z.string().min(1, '请输入留言内容').max(200, '留言最多200个字'),
@@ -29,26 +20,11 @@ const messageSchema = z.object({
 
 type MessageFormData = z.infer<typeof messageSchema>;
 
-function loadMessages(): IMessage[] {
-  try {
-    const raw = scopedStorage.getItem(STORAGE_KEY);
-    if (raw) return JSON.parse(raw);
-  } catch (e) {
-    logger.error('Failed to load messages:', String(e));
-  }
-  return [];
-}
 
-function saveMessages(messages: IMessage[]) {
-  try {
-    scopedStorage.setItem(STORAGE_KEY, JSON.stringify(messages));
-  } catch (e) {
-    logger.error('Failed to save messages:', String(e));
-  }
-}
 
 export default function MessageBoardSection() {
-  const [messages, setMessages] = useState<IMessage[]>(loadMessages);
+  const [messages, setMessages] = useState<Message[]>([]);
+  const [loading, setLoading] = useState(true);
   const [parent] = useAutoAnimate({ duration: 250, easing: 'ease-in-out' });
 
   const form = useForm<MessageFormData>({
@@ -56,27 +32,45 @@ export default function MessageBoardSection() {
     defaultValues: { nickname: '', content: '' },
   });
 
+  // 页面加载时从 Supabase 读取留言
   useEffect(() => {
-    saveMessages(messages);
-  }, [messages]);
+    fetchMessages();
+  }, []);
+
+  async function fetchMessages() {
+    setLoading(true);
+    const { data, error } = await supabase
+      .from('messages')
+      .select('*')
+      .order('created_at', { ascending: false });
+    if (error) {
+      toast.error('加载留言失败，请刷新重试');
+    } else {
+      setMessages(data ?? []);
+    }
+    setLoading(false);
+  }
 
   const onSubmit = useCallback(
-    (data: MessageFormData) => {
-      const newMsg: IMessage = {
-        id: Date.now().toString(),
+    async (data: MessageFormData) => {
+      const { error } = await supabase.from('messages').insert({
         nickname: data.nickname,
         content: data.content,
-        createdAt: Date.now(),
-      };
-      setMessages((prev) => [newMsg, ...prev]);
+      });
+      if (error) {
+        toast.error('留言失败，请稍后重试');
+        return;
+      }
       form.reset();
       toast.success('留言成功！🌊 感谢你的留言~');
+      // 重新拉取最新留言
+      fetchMessages();
     },
     [form],
   );
 
-  const formatTime = (ts: number) => {
-    const d = new Date(ts);
+  const formatTime = (iso: string) => {
+    const d = new Date(iso);
     return `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}-${String(d.getDate()).padStart(2, '0')} ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
   };
 
@@ -158,7 +152,12 @@ export default function MessageBoardSection() {
           {/* Messages */}
           <div ref={parent}>
             <AnimatePresence mode="popLayout">
-              {messages.length === 0 ? (
+              {loading ? (
+                <div className="text-center py-12">
+                  <div className="text-5xl mb-4 animate-pulse">💬</div>
+                  <p className="text-muted-foreground text-sm">加载中...</p>
+                </div>
+              ) : messages.length === 0 ? (
                 <motion.div
                   key="empty"
                   initial={{ opacity: 0 }}
@@ -192,7 +191,7 @@ export default function MessageBoardSection() {
                                 {msg.nickname}
                               </span>
                               <span className="text-xs text-muted-foreground">
-                                {formatTime(msg.createdAt)}
+                                {formatTime(msg.created_at)}
                               </span>
                             </div>
                             <p className="text-sm text-foreground/80 leading-relaxed break-words">

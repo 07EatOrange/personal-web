@@ -25,7 +25,7 @@ export default function BlogListPage() {
                 <h1 className="text-3xl md:text-4xl font-bold text-foreground">博客</h1>
               </div>
               <p className="text-muted-foreground max-w-md mx-auto">
-                分享 AI、Live2D 和游戏心得 🌊
+                分享 AI和个人经验 🌊
               </p>
             </motion.div>
           </div>
